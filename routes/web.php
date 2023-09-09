@@ -65,6 +65,10 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/viewaddpetugas', [AdminController::class, 'viewAddPetugas']);
     Route::get('/viewUpdateUser/{id}', [AdminController::class,'viewUpdateUser']);
     Route::get('/datapetugas', [AdminController::class, 'viewDataPetugas']);
+    Route::get('/generate', [AdminController::class,'generate']);
+
+    Route::post('/generatePeriode',[AdminCrudController::class,'generatePeriode']);
+    Route::post('/generateRekap', [AdminCrudController::class,'generateRekap']);
 
     Route::post('/addpetugas', [AdminCrudController::class, 'addPetugas']);
     Route::post('/updateUser/{id}', [AdminCrudController::class, 'updateUser']);

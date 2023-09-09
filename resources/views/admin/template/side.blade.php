@@ -69,10 +69,20 @@
                 </a>
             </li>
         </ul>
-
-        <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">
-            Report
-        </div>
-        <ul class="pcoded-item pcoded-left-item"></ul>
+@can('admin')
+<div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">
+    Report
+</div>
+<ul class="pcoded-item pcoded-left-item">
+    <li class="active">
+        <a href="/generate">
+            <span class="pcoded-micon"><i class="fi-sr-print"></i></span>
+            <span class="pcoded-mtext" data-i18n="nav.dash.main">Generate</span>
+            <span class="pcoded-mcaret"></span>
+        </a>
+    </li>
+</ul>
+@endcan
+        
     </div>
 </nav>

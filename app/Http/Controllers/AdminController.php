@@ -33,7 +33,7 @@ class AdminController extends Controller
             'id' => Auth::user()->id,
             'user' => Auth::user(),
             'detail' => Pengaduan::find($id),
-            'tanggapan' => Tanggapan::with(['user', 'pengaduan'])->where('pengaduan_id', $id)->get(),
+            'tanggapan' => Tanggapan::with(['user', 'pengaduan'] )->where('pengaduan_id', $id)->get(),
         ];
 
         return view('admin.detail', $alldatadetail);
@@ -122,6 +122,13 @@ class AdminController extends Controller
         $user = Auth::user();
         $laporanNew = Pengaduan::where('status', 'new')->latest()->get();
         return view('admin.profile', compact('user','laporanNew'));
+    }
+
+    public function generate ()
+    {
+        $user = Auth::user();
+        $laporanNew = Pengaduan::where('status', 'new')->latest()->get();
+        return view('admin.data.generate.generate-laporan', compact('user','laporanNew'));
     }
 
 }
